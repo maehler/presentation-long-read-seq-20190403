@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <title>reveal.js</title>
+        <title>Long-read assembly of Norway spruce and Scots pine</title>
 
         <link rel="stylesheet" href="css/reveal.css">
         <link rel="stylesheet" href="css/theme/maehler_dark.css">
@@ -35,10 +35,389 @@
         <div class="reveal">
             <div class="slides">
                 <section>
-                    <h1>Slide 1</h1>
+                    <h2>Long-read assembly of Norway spruce and Scots pine</h2>
+                    <p>
+                    <small>
+                        Niklas Mähler<br>
+                        Uppsala Long-read sequencing meeting<br>
+                        2019-04-03
+                    </small>
+                    </p>
                 </section>
+
                 <section>
-                    <h1>Slide 2</h1>
+                    <section>
+                        <h2>Why spruce and pine?</h2>
+                    </section>
+
+                    <section>
+                        <img src="img/virkesforrad.png"
+                            alt="Virkesförråd"
+                            style="background: white;">
+                    </section>
+
+                    <section>
+                        <img src="img/handel.png"
+                            alt="Most important categories for import/export"
+                            style="background: white;">
+                    </section>
+
+                    <section>
+                        <h2>The availability of field trials</h2>
+                    </section>
+
+                    <section data-background-image="img/spruce_trials_trim.png"
+                             data-background-position="bottom 0 right 0"
+                             data-background-size="35%">
+                        <p style="width: 60%">Current spruce trials</p>
+                    </section>
+
+                    <section data-background-image="img/pine_trials_trim.png"
+                             data-background-position="bottom 0 right 0"
+                             data-background-size="35%">
+                        <p style="width: 60%">Current pine trials</p>
+                    </section>
+
+                    <section>
+                        <h3>Problems with traditional breeding</h3>
+                        <p>Generation time for pine: 11&ndash;18 years</p>
+                        <p>Generation time for spruce: ~30 years</p>
+                    </section>
+
+                    <section>
+                        <h3>Decrease generation time with genomic selection</h3>
+                    </section>
+                </section>
+
+                <section>
+                    <div style="display: flex;">
+                        <div style="display: block; width: 100%;">
+                            <h2>Norway spruce</h2>
+                            <ul>
+                                <li><i>Picea abies</i></li>
+                                <li>20 Gbp genome</li>
+                                <li>~80% repeat content</li>
+                                <li>~30-70,000 genes (?)</li>
+                            </ul>
+                        </div>
+                        <div style="display: block; width: 100%;">
+                            <h2>Scots pine</h2>
+                            <ul>
+                                <li><i>Pinus sylvestris</i></li>
+                                <li>22.5 Gbp genome</li>
+                                <li>? repeat content</li>
+                                <li>? genes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Data</h1>
+                        <aside class="notes">
+                            From here on I will only talk about spruce since this
+                            is what we currently have data for.
+                        </aside>
+                    </section>
+
+                    <section>
+                        <ul>
+                            <li>
+                                50X Pacbio Sequel genomic DNA
+                                <ul>
+                                    <li>Clone Z4006 from Ragunda kommun, Jämtland</li>
+                                    <li>157 million reads</li>
+                                    <li>Subread N50: 12 kbp</li>
+                                </ul>
+                            </li>
+                            <li>HiC data coming</li>
+                            <li>Chromium 10X coming</li>
+                            <li>Some IsoSeq here, more coming</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Contaminant filtering</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Count</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Total reads</td>
+                                    <td>157,235,560</td>
+                                    <td>100%</td>
+                                </tr>
+                                <tr>
+                                    <td>Chloroplast</td>
+                                    <td>903,359</td>
+                                    <td>0.58%</td>
+                                </tr>
+                                <tr>
+                                    <td>Mitochondria</td>
+                                    <td>12,455,470</td>
+                                    <td>7.9%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <figure style="top: 0;" class="acknowledgement-fig">
+                            <img src="https://avatars2.githubusercontent.com/u/8308279?s=400&v=4"
+                                alt="Bastian Schiffthaler">
+                            <figcaption>Bastian Schiffthaler</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Downsampling</h2>
+                        <p>Proceed with the longest 30X</p>
+                        <ul>
+                            <li>Shortest read: 8 kbp</li>
+                            <li>N50: 15,105</li>
+                        </ul>
+                        <figure style="top: 0;" class="acknowledgement-fig">
+                            <img src="https://avatars2.githubusercontent.com/u/8308279?s=400&v=4"
+                                alt="Bastian Schiffthaler">
+                            <figcaption>Bastian Schiffthaler</figcaption>
+                        </figure>
+                    </section>
+                </section>
+
+                <section>
+                    <h1>Keyword: preliminary</h1>
+                </section>
+
+                <section>
+                    <h1>Software</h1>
+                    <p>
+                    We have considered two assemblers:<br>
+                    <strong>MARVEL</strong> and <strong>wtdbg2</strong>
+                    </p>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>MARVEL</h1>
+                    </section>
+
+                    <section>
+                        <p>Developed for the 32 Gbp axolotl genome</p>
+                        <figure>
+                            <img src="http://www.h-its.org/wp-content/uploads/2018/01/2017_Axolotl_IMP.jpg" alt="Axolotl">
+                            <figcaption>&copy; IMP</figcaption>
+                        </figure>
+                        <figure style="top: 3em; right: 3em; max-width: 17%;" class="acknowledgement-fig">
+                            <img src="https://s14-eu5.startpage.com/cgi-bin/serveimage?url=https:%2F%2Fwww.h-its.org%2Fwp-content%2Fuploads%2F2017%2F02%2Fwww.keskin-arts.com-DSC_8987.jpg&sp=a6c0bf3573f3a473335b15caadf73b94" alt="Siegfried Schloissnig">
+                            <figcaption>Siegfried Schloissnig</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>Philosophy</h2>
+                        <ul>
+                            <li>All vs all alignments</li>
+                            <li>No error correction</li>
+                            <li>Dynamically mask repeats</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Axolotl runs</h2>
+                        <p>150,000 CPU hours for one alignment round</p>
+                        <p>Without repeat masking: several million CPU hours and more than 2 PB of storage.</p>
+                    </section>
+
+                    <section>
+                        <h2>What about spruce?</h2>
+                        <p>About 2 million CPU hours and 1 PB of storage for one alignment round.</p>
+                    </section>
+
+                    <section>
+                        <h2>What went wrong?</h2>
+                        <p><strong>Technical</strong></p>
+                        <ul>
+                            <li>Hiccups with the masking server?</li>
+                        </ul>
+                        <p><strong>Biological</strong></p>
+                        <ul>
+                            <li>Repeats too diverged in spruce?</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>wtdbg2</h1>
+                        <p><small>say that fast 5 times&hellip;</small></p>
+                    </section>
+
+                    <section>
+                        <p>Developed by Jue Ruan and Heng Li</p>
+                        <!-- TODO: Add screenshot of their preprint. -->
+                    </section>
+
+                    <section>
+                        <p style="width: 80%;">Assembly done on reads longer than 12 kbp with version 1.2.8</p>
+                        <figure class="acknowledgement-fig">
+                            <img src="http://www.igp.uu.se/digitalAssets/122/c_122555-l_3-k_ignasbunikis.jpg" alt="Ignas Bunikis">
+                            <figcaption>Ignas Bunikis</figcaption>
+                        </figure>
+                        <!-- TODO: Add stats comparing this directly with v1
+                        of the spruce genome. -->
+                    </section>
+
+                    <section>
+                        <table style="font-size: 0.7em;">
+                            <thead>
+                                <tr>
+                                    <th>Assembly</th>
+                                    <th>Total assembly size</th>
+                                    <th>N50</th>
+                                    <th>NG50</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Spruce v1</td>
+                                    <td>12.3 Gbp</td>
+                                    <td>5.21 kbp</td>
+                                    <td>0.606 kbp</td>
+                                </tr>
+                                <tr>
+                                    <td>Spruce v3 wtdbg2</td>
+                                    <td>20.1 Gbp</td>
+                                    <td>94.1 kbp</td>
+                                    <td>99.1 kbp</td>
+                                </tr>
+                                <tr>
+                                    <td>Aspen v2 wtdbg2</td>
+                                    <td>431 Mbp</td>
+                                    <td>550 kbp</td>
+                                    <td>387 kbp</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <section>
+                        <h2>BUSCO analysis</h2>
+                        <table style="font-size: 0.7em">
+                            <thead>
+                                <tr>
+                                    <th>Assembly</th>
+                                    <th>Complete</th>
+                                    <th>Fragmented</th>
+                                    <th>Missing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="fragment">
+                                    <td>Spruce v1</td>
+                                    <td>573</td>
+                                    <td>128</td>
+                                    <td>739</td>
+                                </tr>
+                                <tr class="fragment">
+                                    <td>Spruce v3 wtdbg2</td>
+                                    <td>26</td>
+                                    <td>15</td>
+                                    <td>1399</td>
+                                </tr>
+                                <tr class="fragment">
+                                    <td>Aspen v2 wtdbg2</td>
+                                    <td>1182</td>
+                                    <td>69</td>
+                                    <td>189</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <figure class="acknowledgement-fig">
+                            <img src="img/tomas_larsson.jpg" alt="Tomas Larsson">
+                            <figcaption>Tomas Larsson</figcaption>
+                        </figure>
+                    </section>
+
+                    <section>
+                        <h2>IsoSeq alignments</h2>
+                        <img class="stretch" 
+                            src="img/isoseq_alignments.png"
+                            alt="IsoSeq GMAP alignments">
+                        <figure class="acknowledgement-fig">
+                            <img src="img/nico.jpeg" alt="Nicolas Delhomme">
+                            <figcaption>Nicolas Delhomme</figcaption>
+                        </figure>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Summary</h2>
+                </section>
+
+                <section>
+                    <h3>Acknowledgements</h3>
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-around; align-content: space-between; align-items: center; font-size: 0.6em;">
+                        <div class="acknowledgement">
+                            <h4>Umeå</h4>
+                            <ul>
+                                <li>Nathaniel Street</li>
+                                <li>Ove Nilsson</li>
+                                <li>Harry Wu</li>
+                                <li>Nicolas Delhomme</li>
+                                <li>Bastian Schiffthaler</li>
+                                <li>Alexis Sullivan</li>
+                            </ul>
+                        </div>
+
+                        <div class="acknowledgement" style="width: 30%">
+                            <figure><img src="img/umu-logo-neg-EN.png" alt="Umeå University"></figure>
+                            <figure style="width: 40%;"><img src="img/slu_logo_vit.png" alt="SLU"></figure>
+                            <figure style="width: 30%;"><img src="img/upsc_logo.png" alt="UPSC"></figure>
+                        </div>
+
+                        <div class="acknowledgement" style="width: 20%">
+                            <figure><img src="img/UU_logo_vit.png" alt="Uppsala University"></figure>
+                            <figure><img src="img/scilifelab_green_white.png" alt="SciLifeLab"></figure>
+                        </div>
+                        <div class="acknowledgement">
+                            <h4>Uppsala</h4>
+                            <ul>
+                                <li>Björn Nystedt</li>
+                                <li>Tomas Larsson</li>
+                                <li>Manfred Grabherr</li>
+                                <li>Ignas Bunikis</li>
+                            </ul>
+                        </div>
+
+                        <div class="acknowledgement">
+                            <h4>Vienna</h4>
+                            <ul>
+                                <li>Siegfried Schloissnig</li>
+                            </ul>
+                            <figure style="width: 30%; margin-top: 1em;">
+                                <img src="img/IMP_Logo.jpg" alt="IMP">
+                            </figure>
+                        </div>
+
+                        <div class="acknowledgement">
+                            <h4>Computing</h4>
+                            <ul>
+                                <li>UPPMAX</li>
+                                <li>SNIC</li>
+                                <li>Marcus Lundberg</li>
+                            </ul>
+                        </div>
+
+                        <div class="acknowledgement">
+                            <h4>Funding</h4>
+                            <figure style="margin-top: 1em;">
+                                <img src="img/kaw_logo_white.svg" alt="KAW">
+                            </figure>
+                        </div>
+                    </div>
                 </section>
             </div>
         </div>

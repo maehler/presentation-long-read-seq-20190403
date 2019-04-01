@@ -1,0 +1,32 @@
+.reveal .acknowledgement {
+    padding-top: 20px;
+    max-width: 45%;
+}
+
+.reveal .acknowledgement ul {
+    list-style: none;
+    margin: 0;
+}
+
+.reveal figure.acknowledgement-fig {
+    max-width: 11%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.reveal figure {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.reveal figure img {
+    margin: 0;
+}
+
+.reveal figcaption {
+    text-align: right;
+    width: 100%;
+    font-size: 0.4em;
+    margin: 0;
+}
